@@ -69,7 +69,7 @@ PS.MA = function(X,U,W=NULL,M=1000,alpha=NULL,master.index=NULL,master.dict=list
    # the count is not important
    dict[[index]][['count']] =  1
    out.table = c(index,dict[[index]][['BIC']])
-
+   dim(out.table) = c(1,2)
    for (i in 2:M){
       # first choose variable to add or remove
       index.prop = sample(length(alpha),1)
@@ -102,8 +102,12 @@ PS.MA = function(X,U,W=NULL,M=1000,alpha=NULL,master.index=NULL,master.dict=list
       # only fit the model if we have not visited it yet! so check that it is not in the dictionary
       if (is.null(dict[[index.prop]])){
          dict[[index.prop]] = add.to.dictionary(X=X,U=U,W=W,alpha=alpha.prop)
+      }
+      # add to out.table if we havent visited the model in this call to PS.MA
+      if (!any(out.table[,1]==index.prop)){
          out.table = rbind(out.table,c(index.prop,dict[[index.prop]][['BIC']]))
       }
+
       # convert BIC to probs
       num = dict[[index.prop]][['BIC']]
       den = dict[[index]][['BIC']]
