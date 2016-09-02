@@ -4,10 +4,12 @@
 \alias{print.summary.madr.enumerate}
 \title{Print function for summary.madr.enumerate class}
 \usage{
-\method{print}{summary.madr.enumerate}(res)
+\method{print}{summary.madr.enumerate}(x, ...)
 }
 \arguments{
-\item{res}{summary.madr.enumerate object}
+\item{x}{summary.madr.enumerate object}
+
+\item{...}{ignored}
 }
 \description{
 This function prints results from summary.madr.enumerate class

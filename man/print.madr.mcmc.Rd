@@ -4,10 +4,12 @@
 \alias{print.madr.mcmc}
 \title{Print function for madr.mcmc class}
 \usage{
-\method{print}{madr.mcmc}(res)
+\method{print}{madr.mcmc}(x, ...)
 }
 \arguments{
-\item{res}{madr.mcmc object}
+\item{x}{madr.mcmc object}
+
+\item{...}{ignored}
 }
 \description{
 This function prints results from madr.mcmc class

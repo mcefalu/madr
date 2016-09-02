@@ -16,6 +16,8 @@ add.to.dictionary.outcome(Y, X, U, W, alpha, binary = F)
 \item{W}{matrix of covariates that will be included in all models (optional)}
 
 \item{alpha}{vector of inclusion indicators (which columns of U) to included in the propensity score model}
+
+\item{binary}{indicates if the outcome is binary}
 }
 \value{
 A list. The list contains the following named components:

@@ -4,14 +4,16 @@
 \alias{summary.madr.enumerate}
 \title{Provides model averaged double robust estimate for different values of tau}
 \usage{
-\method{summary}{madr.enumerate}(out, tau = NULL, two.stage = NULL)
+\method{summary}{madr.enumerate}(object, tau = NULL, two.stage = NULL, ...)
 }
 \arguments{
-\item{out}{madr.enumerate object}
+\item{object}{madr.enumerate object}
 
 \item{tau}{scalar value for the prior model dependence (1 is an independent prior; defaults to value used in madr.enumerate)}
 
 \item{two.stage}{indicator if the two-stage procedure for calculating the model weights should be used (defaults to value used in madr.enumerate)}
+
+\item{...}{ignored}
 }
 \value{
 A list. The list contains the following named components:

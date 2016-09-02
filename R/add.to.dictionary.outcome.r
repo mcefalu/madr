@@ -7,6 +7,7 @@
 #' @param U matrix of covariates to be considered for inclusion/exclusion
 #' @param W matrix of covariates that will be included in all models (optional)
 #' @param alpha vector of inclusion indicators (which columns of U) to included in the propensity score model
+#' @param binary indicates if the outcome is binary
 #' @export
 #' @return A list. The list contains the following named components:
 #'	\item{out}{a list that contains the BIC, predicted values, and estimated treatment effect from each outcome model}

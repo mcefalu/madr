@@ -2,9 +2,10 @@
 #'
 #' This function estimates model averaged double robust estimate for different values of tau using a madr.enumerate object
 #'
-#' @param out madr.enumerate object
+#' @param object madr.enumerate object
 #' @param tau scalar value for the prior model dependence (1 is an independent prior; defaults to value used in madr.enumerate)
 #' @param two.stage indicator if the two-stage procedure for calculating the model weights should be used (defaults to value used in madr.enumerate)
+#' @param ... ignored
 #'
 #' @export
 #' @return A list. The list contains the following named components:
@@ -15,16 +16,16 @@
 #'	\item{two.stage}{indicator if the two-stage procedure for calculating the model weights was used}
 #'
 
-summary.madr.enumerate <- function(out,tau=NULL,two.stage=NULL){
+summary.madr.enumerate <- function(object,tau=NULL,two.stage=NULL,...){
    if (is.null(tau)){
-      tau = out$tau
+      tau = object$tau
    }
    if (is.null(two.stage)){
-      two.stage = out$two.stage
+      two.stage = object$two.stage
    }
-   om = out$out
-   ps = out$ps
-   dr = out$dr
+   om = object$out
+   ps = object$ps
+   dr = object$dr
    prior = matrix(NA,nrow(ps),nrow(om))
    rownames(prior) = paste("ps",ps[,1],sep="")
    colnames(prior) = paste("om",om[,1],sep="")
@@ -66,8 +67,8 @@ summary.madr.enumerate <- function(out,tau=NULL,two.stage=NULL){
    K = length(strsplit(gsub("ps","",names(ps)[1]),split='')[[1]])
    ps.prob = numeric(K)
    om.prob = numeric(K)
-   names(ps.prob) = out$U.names
-   names(om.prob) = out$U.names
+   names(ps.prob) = object$U.names
+   names(om.prob) = object$U.names
 
    for (i in 1:length(ps)){
       index = which(as.numeric(strsplit(gsub("ps","",names(ps)[i]),split='')[[1]])==1)

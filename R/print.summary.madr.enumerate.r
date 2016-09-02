@@ -4,18 +4,19 @@
 #'
 #' @export
 #'
-#' @param res summary.madr.enumerate object
+#' @param x summary.madr.enumerate object
+#' @param ... ignored
 #'
 
-print.summary.madr.enumerate <- function(res){
-   cat(paste("\nMA-DR with tau=",res$tau))
-   if (res$two.stage){
+print.summary.madr.enumerate <- function(x,...){
+   cat(paste("\nMA-DR with tau=",x$tau))
+   if (x$two.stage){
       cat(" and two-stage procedure for calculating weights")
    }else{
    }
-   cat(paste("\n\nEstimate:",res$madr))
+   cat(paste("\n\nEstimate:",x$madr))
    cat("\n\nPropensity score model inclusion probabilities:\n")
-   print(round(res$weight.ps,3))
+   print(round(x$weight.ps,3))
    cat("\nOutcome model inclusion probabilities:\n")
-   print(round(res$weight.om,3))
+   print(round(x$weight.om,3))
 }

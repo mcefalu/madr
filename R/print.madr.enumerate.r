@@ -4,13 +4,14 @@
 #'
 #' @export
 #'
-#' @param out madr.enumerate object
+#' @param x madr.enumerate object
+#' @param ... ignored
 #'
 
-print.madr.enumerate <- function(out){
-   res = summary(out)
-   cat(paste("\nMA-DR with tau=",out$tau))
-   if (out$two.stage){
+print.madr.enumerate <- function(x,...){
+   res = summary(x)
+   cat(paste("\nMA-DR with tau=",x$tau))
+   if (x$two.stage){
       cat(" and two-stage procedure for calculating weights")
    }else{
    }
